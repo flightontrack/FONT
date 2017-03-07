@@ -95,7 +95,7 @@ public class SvcLocationClock extends Service implements LocationListener {
         }
         else {
             long currTime = Util.getTimeGMT();
-            Util.appendLog(TAG + "___TIMER-onLocationChanged :  Counter:" + counter, 'd');
+            //Util.appendLog(TAG + "___TIMER-onLocationChanged :  Counter:" + counter, 'd');
 
             if (currTime + TIME_RESERVE >= alarmNextTimeUTCmsec) {
                 //Util.appendLog(TAG + "isClockTimeReached: ", 'd');
@@ -105,7 +105,7 @@ public class SvcLocationClock extends Service implements LocationListener {
                     Route.activeFlight.onClock(location);
                 }
 
-                Util.appendLog(TAG + "onLocationChanged: Route.dbLocationRecCount:" + Route.dbLocationRecCount + " Route._openFlightsCount:" + Route.currentFlights.size() + " _mode:" + _mode, 'd');
+                //Util.appendLog(TAG + "onLocationChanged: Route.dbLocationRecCount:" + Route.dbLocationRecCount + " Route._openFlightsCount:" + Route.currentFlights.size() + " _mode:" + _mode, 'd');
                 Route.instanceRoute.set_RouteRequest(ROUTEREQUEST.START_COMMUNICATION);
             }
         }

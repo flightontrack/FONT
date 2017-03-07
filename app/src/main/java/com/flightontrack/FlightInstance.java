@@ -117,7 +117,7 @@ class FlightInstance {
         boolean isCurrSpeedAboveMin = (_speedCurrent > cutoffSpeed);
         boolean isPrevSpeedAboveMin = (speedPrev > cutoffSpeed);
         //Util.appendLog(TAG + "cutoffSpeed:" + cutoffSpeed, 'd');
-        Util.appendLog(TAG + "isCurrSpeedAboveMin:" + isCurrSpeedAboveMin+" isPrevSpeedAboveMin:"+isPrevSpeedAboveMin, 'd');
+        //Util.appendLog(TAG + "isCurrSpeedAboveMin:" + isCurrSpeedAboveMin+" isPrevSpeedAboveMin:"+isPrevSpeedAboveMin, 'd');
         if(isCurrSpeedAboveMin && isPrevSpeedAboveMin) return true;
         else if(Route.activeFlight.flightState== FLIGHTREQUEST.CHANGESTATE_INFLIGHT && (isCurrSpeedAboveMin^isPrevSpeedAboveMin)) {
             if (isPrevSpeedAboveMin) SvcLocationClock.instance.requestLocationUpdate(SPEEDLOW_TIME_BW_GPS_UPDATES_SEC, DISTANCE_CHANGE_FOR_UPDATES_ZERO);
@@ -236,7 +236,7 @@ class FlightInstance {
     }
 
     public void onClock(final Location location) {
-        Util.appendLog(TAG + "onClock:", 'd');
+        //Util.appendLog(TAG + "onClock:", 'd');
 
                 float speedCurrent = location.getSpeed();
                 set_speedCurrent(speedCurrent);
