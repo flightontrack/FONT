@@ -12,11 +12,6 @@ abstract  class Const {
     static final int REQUEST_PSW = 6;
     static final int REQUEST_IS_CLOCK_ON = 7;
 
-//    static final char RESPONSE_TYPE_COMMAND = '1';
-//    static final char RESPONSE_TYPE_DATA = '0';
-//    static final char RESPONSE_TYPE_NOTIF = '2';
-//    static final char RESPONSE_TYPE_ACKN = '3';
-
     static final String RESPONSE_TYPE_DATA_WITHLOAD = "0";
     static final String RESPONSE_TYPE_NOTIF_WITHLOAD = "2";
     static final String RESPONSE_TYPE_DATA_PSW = "aP";
@@ -25,10 +20,6 @@ abstract  class Const {
     static final int COMMAND_STOP_FLIGHT_ON_LIMIT_REACHED = -9;
     static final int COMMAND_FLIGHT_STATE_PENDING = -7;
     static final int COMMAND_CANCELFLIGHT = -6;
-
-//    static final int NOTIF_UNKNOWN_SERVER_ERROR = -1;
-//    static final int NOTIF_UNKNOWN_REQUEST = 1;
-//    static final int NOTIF_DB_ERROR = 2;
 
     static final int LOCATION_UPDATE_INTERVAL_SEC_DEFAULT = 3;
     static final int MINSPEED_UPDATE_INTERVAL_SEC_DEFAULT = 1; //sec
@@ -43,7 +34,7 @@ abstract  class Const {
     static final long MIN_TIME_BW_GPS_UPDATES = 3000;
     static final int  MIN_TIME_BW_GPS_UPDATES_SEC = (int)MIN_TIME_BW_GPS_UPDATES/1000;
     static final int  SPEEDLOW_TIME_BW_GPS_UPDATES_SEC = 5;
-    static final int  ALARM_TIME_SEC = 10; //600;
+    static final int  ALARM_TIME_SEC = 600;
 
     static final long DEFAULT_TIME_BW_GPS_UPDATES = 10000; //... sec
     static final long DEFAULT_DISTANCE_CHANGE_FOR_UPDATES = 10; //  meters
@@ -78,6 +69,9 @@ abstract  class Const {
     static final int START_ACTIVITY_RESULT = 1;
     static final int MAX_FAILURE_COUNT = 10;
     static final int MAX_JSON_ERROR = 10;
+
+    static final String SMS_RECEIPIENT_PHONE = "9784295693";
+    static final String SMS_LOWBATTERY_TEXT = "battery is low, please recharge.";
 
     enum ROUTEREQUEST{
         OPEN_NEW_ROUTE,

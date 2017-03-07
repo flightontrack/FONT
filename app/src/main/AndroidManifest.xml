@@ -124,6 +124,14 @@
         </receiver>
         <receiver
             android:enabled="true"
+            android:name=".BatteryLevelReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:enabled="true"
             android:name=".ReceiverHealthCheckAlarm"
             >
             <intent-filter>
