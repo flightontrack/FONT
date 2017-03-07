@@ -22,7 +22,8 @@ public class BatteryLevelReceiver extends BroadcastReceiver {
         int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
         int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
 
-        float batteryPct = level / (float)scale;
+        int batteryPct = (int) (level / (float)scale);
+
         String phoneNo = SMS_RECEIPIENT_PHONE;
 
         if (intent.getAction().contains("BATTERY_LOW")) {
