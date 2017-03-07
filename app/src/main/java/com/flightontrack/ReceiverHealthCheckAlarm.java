@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 //import android.content.BroadcastReceiver;
 //import android.os.IBinder;
+import android.os.BatteryManager;
 import android.support.v4.content.WakefulBroadcastReceiver;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -12,6 +13,7 @@ import com.loopj.android.http.RequestParams;
 
 import cz.msebera.android.httpclient.Header;
 
+import static android.content.Context.BATTERY_SERVICE;
 import static com.flightontrack.Const.*;
 
 public class ReceiverHealthCheckAlarm extends WakefulBroadcastReceiver {
@@ -50,7 +52,8 @@ public class ReceiverHealthCheckAlarm extends WakefulBroadcastReceiver {
 
     }
     void healthCheckComm(Context ctx) {
-        Util.appendLog(TAG+ "getCloseFlight",'d');
+        Util.appendLog(TAG+ "healthCheckComm",'d');
+
         RequestParams requestParams = new RequestParams();
         requestParams.put("rcode", REQUEST_IS_CLOCK_ON);
         requestParams.put("isrestart", isRestart);
@@ -58,8 +61,8 @@ public class ReceiverHealthCheckAlarm extends WakefulBroadcastReceiver {
         requestParams.put("deviceid", MainActivity._myDeviceId);
         requestParams.put("isClockOn", SvcLocationClock.isInstanceCreated());
         requestParams.put("flightid", Route.activeFlight==null?FLIGHT_NUMBER_DEFAULT :Route.activeFlight.flightNumber);
-        //requestParams.put("isdebug", Util.getIsDebug());
         requestParams.put("isdebug", MainActivity.AppProp.pIsDebug);
+        requestParams.put("battery", Util.getBattery());
 
         new AsyncHttpClient().post(Util.getTrackingURL() + ctx.getString(R.string.aspx_communication), requestParams, new AsyncHttpResponseHandler() {
                     @Override

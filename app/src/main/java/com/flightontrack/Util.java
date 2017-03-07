@@ -153,7 +153,13 @@ public class Util {
         String strId = (MainActivity._phoneNumber == null||MainActivity._phoneNumber.isEmpty()) ? MainActivity._myDeviceId : MainActivity._phoneNumber;
         return strId.substring(strId.length() - 10);
     }
+    static void setBattery(String text) {
+        editor.putString("batteryLevel", text).commit();
+    }
 
+    static String getBattery() {
+        return sharedPreferences.getString("batteryLevel","0");
+    }
     static String getPsw() {
         return sharedPreferences.getString("cloudpsw",null);
 //        if (psw==null) {

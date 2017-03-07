@@ -11,6 +11,7 @@ abstract  class Const {
 //    static final int REQUEST_STOP_FLIGHTON_LIMIT_REACHED = 5;
     static final int REQUEST_PSW = 6;
     static final int REQUEST_IS_CLOCK_ON = 7;
+    static final int POST_BATTERY_STATUS = 8;
 
     static final String RESPONSE_TYPE_DATA_WITHLOAD = "0";
     static final String RESPONSE_TYPE_NOTIF_WITHLOAD = "2";
