@@ -26,7 +26,7 @@ public class AlarmManagerCtrl {
     }
 
     public static void setAlarm() {
-        Util.appendLog(TAG+ "setAlarm",'d');
+        //Util.appendLog(TAG+ "setAlarm",'d');
         alarmManager.set(AlarmManager.RTC_WAKEUP,
                 getAlarmNextTimeUTCmsec(),
                 pendingReceiverIntent);

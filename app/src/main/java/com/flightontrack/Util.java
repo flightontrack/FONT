@@ -61,7 +61,7 @@ public class Util {
 
      static String getTrackingURL() {
         String[] spinnerUrls = ctx.getResources().getStringArray(R.array.url_array);
-        Util.appendLog(TAG + "getTrackingUR : " + spinnerUrls[MainActivity.AppProp.pSpinnerUrlsPos].trim(),'d');
+        //Util.appendLog(TAG + "getTrackingUR : " + spinnerUrls[MainActivity.AppProp.pSpinnerUrlsPos].trim(),'d');
         //return sharedPreferences.getString("trackingURL", spinnerUrls[getSpinnerUrlsPos()]).trim();
         return spinnerUrls[MainActivity.AppProp.pSpinnerUrlsPos].trim();
     }

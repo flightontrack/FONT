@@ -6,6 +6,7 @@ import android.content.Intent;
 //import android.os.IBinder;
 import android.os.BatteryManager;
 import android.support.v4.content.WakefulBroadcastReceiver;
+import android.telephony.SmsManager;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -42,6 +43,7 @@ public class ReceiverHealthCheckAlarm extends WakefulBroadcastReceiver {
                 MainActivity.set_isMultileg(true);
                 MainActivity.trackingButton.performClick();
                 isRestart = true;
+                batteryCheck();
                 healthCheckComm(context);
             }
 
@@ -49,7 +51,22 @@ public class ReceiverHealthCheckAlarm extends WakefulBroadcastReceiver {
 
             return;
         }
+    }
+    public void batteryCheck() {
 
+        int batLevel = (BatteryManager.BATTERY_PROPERTY_CAPACITY);
+        Util.appendLog(TAG + "BATTERY_PROPERTY_CAPACITY: "+batLevel, 'd');
+
+        Util.setBattery(String.valueOf(batLevel));
+        String phoneNo = SMS_RECEIPIENT_PHONE;
+
+//        if (intent.getAction().contains("BATTERY_LOW")) {
+//
+//            String message = Util.getUserName()+" "+ SMS_LOWBATTERY_TEXT;
+//
+//            SmsManager smsManager = SmsManager.getDefault();
+//            smsManager.sendTextMessage(phoneNo, null, message, null, null);
+//        }
     }
     void healthCheckComm(Context ctx) {
         Util.appendLog(TAG+ "healthCheckComm",'d');
@@ -67,9 +84,9 @@ public class ReceiverHealthCheckAlarm extends WakefulBroadcastReceiver {
         new AsyncHttpClient().post(Util.getTrackingURL() + ctx.getString(R.string.aspx_communication), requestParams, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                        Util.appendLog(TAG + "healthCheckComm OnSuccess", 'd');
-                        //String responseText = new String(responseBody);
                         Response response = new Response(new String(responseBody));
+                        String responseText = new String(responseBody);
+                        Util.appendLog(TAG + "healthCheckComm OnSuccess response:"+responseText, 'd');
 
                         if (response.responseAckn != null) {
                             Util.appendLog(TAG + "onSuccess|HealthCheck: "+response.responseAckn,'d');

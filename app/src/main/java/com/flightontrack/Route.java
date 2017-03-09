@@ -47,7 +47,7 @@ class Route {
     }
 
     void set_RouteRequest(ROUTEREQUEST request){
-        Util.appendLog(TAG + "set_ROUTEREQUEST:" + request, 'd');
+        if(request!=ROUTEREQUEST.START_COMMUNICATION) Util.appendLog(TAG + "set_ROUTEREQUEST:" + request, 'd');
         switch (request){
             case OPEN_NEW_ROUTE:
                 set_routeStatus(RSTATUS.ACTIVE);
