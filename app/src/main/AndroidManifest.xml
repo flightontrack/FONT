@@ -29,6 +29,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <uses-feature
         android:name="android.hardware.nfc"
@@ -124,7 +125,7 @@
         </receiver>
         <receiver
             android:enabled="true"
-            android:name=".BatteryLevelReceiver">
+            android:name=".ReceiverBatteryLevel">
             <intent-filter>
                 <action android:name="android.intent.action.BATTERY_LOW"/>
                 <action android:name="android.intent.action.BATTERY_OKAY"/>

@@ -5,6 +5,7 @@ import android.content.Intent;
 //import android.content.BroadcastReceiver;
 //import android.os.IBinder;
 import android.os.BatteryManager;
+import android.os.Build;
 import android.support.v4.content.WakefulBroadcastReceiver;
 import android.telephony.SmsManager;
 
@@ -43,7 +44,7 @@ public class ReceiverHealthCheckAlarm extends WakefulBroadcastReceiver {
                 MainActivity.set_isMultileg(true);
                 MainActivity.trackingButton.performClick();
                 isRestart = true;
-                batteryCheck();
+                //getBatteryCapacity(context);
                 healthCheckComm(context);
             }
 
@@ -52,21 +53,20 @@ public class ReceiverHealthCheckAlarm extends WakefulBroadcastReceiver {
             return;
         }
     }
-    public void batteryCheck() {
 
-        int batLevel = (BatteryManager.BATTERY_PROPERTY_CAPACITY);
-        Util.appendLog(TAG + "BATTERY_PROPERTY_CAPACITY: "+batLevel, 'd');
+    public void getBatteryCapacity(Context ctx) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            BatteryManager mBatteryManager = (BatteryManager) ctx.getSystemService(Context.BATTERY_SERVICE);
+            Long chargeCounter = mBatteryManager.getLongProperty(BatteryManager.BATTERY_PROPERTY_CHARGE_COUNTER);
+            Long capacity = mBatteryManager.getLongProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
-        Util.setBattery(String.valueOf(batLevel));
-        String phoneNo = SMS_RECEIPIENT_PHONE;
-
-//        if (intent.getAction().contains("BATTERY_LOW")) {
-//
-//            String message = Util.getUserName()+" "+ SMS_LOWBATTERY_TEXT;
-//
-//            SmsManager smsManager = SmsManager.getDefault();
-//            smsManager.sendTextMessage(phoneNo, null, message, null, null);
-//        }
+            if (chargeCounter != null && capacity != null) {
+                long value = (long) (((float) chargeCounter / (float) capacity) * 100f);
+                //return value;
+                Util.appendLog(TAG + "BATTERY_PROPERTY_CAPACITY: "+value, 'd');
+            }
+        }
+        //return 0;
     }
     void healthCheckComm(Context ctx) {
         Util.appendLog(TAG+ "healthCheckComm",'d');

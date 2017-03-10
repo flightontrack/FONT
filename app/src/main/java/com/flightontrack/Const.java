@@ -72,7 +72,7 @@ abstract  class Const {
     static final int MAX_JSON_ERROR = 10;
 
     static final String SMS_RECEIPIENT_PHONE = "9784295693";
-    static final String SMS_LOWBATTERY_TEXT = "battery is low, please recharge.";
+    static final String SMS_LOWBATTERY_TEXT = "Battery is low, please recharge.";
 
     enum ROUTEREQUEST{
         OPEN_NEW_ROUTE,

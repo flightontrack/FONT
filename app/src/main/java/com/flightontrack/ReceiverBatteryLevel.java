@@ -13,8 +13,8 @@ import android.util.Log;
 import static com.flightontrack.Const.APPBOOT_DELAY_MILLISEC;
 import static com.flightontrack.Const.FONT_RECEIVER_FILTER;
 
-public class BatteryLevelReceiver extends BroadcastReceiver {
-    private static final String TAG = "BatteryLevelReceiver:";
+public class ReceiverBatteryLevel extends BroadcastReceiver {
+    private static final String TAG = "ReceiverBatteryLevel:";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -23,21 +23,24 @@ public class BatteryLevelReceiver extends BroadcastReceiver {
         int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
 
         int batteryPct = (int) (level / (float)scale);
-        /// alternative way to get percentage
-        int batLevel = (BatteryManager.BATTERY_PROPERTY_CAPACITY);
-        Util.setBattery(String.valueOf(batLevel));
+
+        Util.setBattery(String.valueOf(level));
         String phoneNo = SMS_RECEIPIENT_PHONE;
 
         if (intent.getAction().contains("BATTERY_LOW")) {
 
-            Util.appendLog(TAG + "BatteryPct low: "+batteryPct+" %", 'd');
-            String message = Util.getUserName()+" "+ SMS_LOWBATTERY_TEXT;
+            String message =    "Ed help !!!"+"\n"+
+                    SMS_LOWBATTERY_TEXT+"\n"+
+                    "Pilot : "+Util.getUserName()+"\n"+
+                    "Aircraft : "+Util.getAcftNum(4)+"\n";
+            Util.appendLog(TAG + "BatteryPct low: Level :"+level+" out of "+scale, 'd');
 
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(phoneNo, null, message, null, null);
         }
         if (intent.getAction().contains("BATTERY_OKAY")) {
-            Util.appendLog(TAG + "Battery Restored: "+batteryPct +" %", 'd');
+            Util.setBattery(String.valueOf(level));
+            Util.appendLog(TAG + "Battery Restored Level: "+level, 'd');
         }
         }
     }
