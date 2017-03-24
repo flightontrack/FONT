@@ -13,6 +13,8 @@ import android.net.Uri;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -37,7 +39,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import static com.flightontrack.Const.*;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity:";
     static Context ctxApp;
     static EditText txtUserName;
@@ -77,7 +79,8 @@ public class MainActivity extends Activity {
             instanceThis = this;
             MainActivity.ctxApp = getApplicationContext(); //TODO Are they ever different?
             setContentView(R.layout.activity_main);
-
+            Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+            setSupportActionBar(myToolbar);
             txtAcftNum = (TextView) findViewById(R.id.txtAcftNum);
             txtUserName = (EditText) findViewById(R.id.txtUserName);
             chBoxIsMultiLeg = (CheckBox) findViewById(R.id.patternCheckBox);
