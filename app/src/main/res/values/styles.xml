@@ -8,22 +8,22 @@
         <!--<item name="android:textSize">"@style/large_title_text</item>-->
         <item name="android:textSize">20sp</item>
         <item name="colorPrimary">@color/colorPrimary</item>
-        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-        <!--<item name="colorAccent">@color/colorAccent</item>-->
+        <!-- Overflow menu background -->
+        <item name="android:itemBackground">@color/colorPrimary</item>
     </style>
-    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Light">
         <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
-        <item name="android:textColorPrimary">@android:color/holo_blue_light</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
         <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
         <item name="actionMenuTextColor">@android:color/holo_green_light</item>
         <!-- Tints the input fields like checkboxes and text fields -->
-        <item name="colorAccent">@android:color/holo_blue_bright</item>
+        <!--<item name="colorAccent">@android:color/holo_blue_bright</item>-->
         <!-- Applies to views in their normal state. -->
-        <item name="colorControlNormal">@android:color/black</item>
+        <item name="colorControlNormal">@android:color/holo_green_light</item>
         <!-- Applies to views in their activated state (i.e checked or switches) -->
-        <item name="colorControlActivated">@android:color/black</item>
+        <item name="colorControlActivated">@android:color/holo_green_light</item>
         <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
-        <item name="colorControlHighlight">@android:color/black</item>
+        <item name="colorControlHighlight">@android:color/holo_green_light</item>
 
         <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
         <!--
@@ -32,10 +32,6 @@
         -->
     </style>
     <!-- This configures the styles for the title within the Toolbar  -->
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">21sp</item>
-        <item name="android:textStyle">italic</item>
-    </style>
 
     <style name="label_text" parent="AppTheme">
         <item name="android:layout_marginLeft">10dp</item>
@@ -74,4 +70,5 @@
         <item name="android:layout_marginLeft">5dp</item>
         <item name="android:layout_marginTop">1dp</item>
     </style>
+
 </resources>

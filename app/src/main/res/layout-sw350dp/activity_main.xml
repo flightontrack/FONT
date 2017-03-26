@@ -12,14 +12,16 @@
     tools:context=".MainActivity"
     >
     <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:text="@string/app_name"
+        android:id="@+id/toolbar_top"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:navigationIcon="@drawable/ic_launcher">
+
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -48,81 +50,68 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="10">
+
+        >
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="4"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/label_interval"
             style="@style/label_text"
             />
         <Spinner
             android:layout_width="0dp"
-            android:layout_weight="6"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/spinnerId"
-            android:textAlignment="textEnd"
-            android:gravity="end"
             />
     </LinearLayout>
-    <!--<LinearLayout-->
-    <!--android:orientation="horizontal"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:weightSum="10"-->
-    <!-->-->
-    <!--<TextView-->
-    <!--style="@style/label_text"-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="@string/label_minspeed"-->
-    <!--android:layout_weight="6" />-->
-    <!--<Spinner-->
-    <!--android:id="@+id/spinnerSpeedId"-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_weight="4"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:gravity="right"-->
-    <!--/>-->
-    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            style="@style/label_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/label_minspeed" />
+
+        <Spinner
+            android:id="@+id/spinnerMinSpeedId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="10"
+        android:layout_marginTop="5dp"
         >
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="2.9"
+            android:layout_weight="5"
             android:layout_height="wrap_content"
             android:text="@string/label_pattern"
             style="@style/label_text"
-            android:layout_marginTop="5dp"
+
             />
 
         <CheckBox
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/patternCheckBox"
-            android:layout_weight="1"
-            android:ellipsize="middle"
             android:scaleX="2"
-            android:scaleY="2" />
-        <TextView
-            style="@style/label_text"
-            android:layout_width="0dp"
-            android:layout_weight="3.9"
-            android:layout_height="wrap_content"
-            android:text="@string/label_minspeed"
-            android:layout_marginTop="5dp"
-            />
-        <Spinner
-            android:id="@+id/spinnerMinSpeedId"
-            android:layout_width="0dp"
-            android:layout_weight="2.1"
-            android:layout_height="wrap_content"
-            android:textAlignment="textEnd"
-            android:gravity="end"
+            android:scaleY="2"
+            android:gravity="start"
             />
 
     </LinearLayout>
@@ -134,10 +123,6 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="10dp"
         >
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="2dip"
-            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -160,7 +145,6 @@
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="wrap_content"
-            android:singleLine="true"
             android:inputType="text"
             android:gravity="end" />
     </LinearLayout>
@@ -193,16 +177,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom|end"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/my_toolbar_bottom"
+            android:id="@+id/toolbar_bottom"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:weightSum="1">
+
+            <android.support.v7.widget.ActionMenuView
+                android:id="@+id/amvMenu"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_weight="1.31" />
+        </android.support.v7.widget.Toolbar>
     </LinearLayout>
 
 </LinearLayout>

@@ -14,6 +14,7 @@ import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.view.KeyEvent;
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
     static Spinner spinnerMinSpeed;
     static CheckBox chBoxIsMultiLeg;
     static Button trackingButton;
+    static Toolbar toolbarTop;
+    static Toolbar toolbarBottom;
+    static ActionMenuView amvMenu;
     public static boolean isNFCcapable = false;
     static MainActivity instanceThis = null;
     public Route route;
@@ -79,8 +83,21 @@ public class MainActivity extends AppCompatActivity {
             instanceThis = this;
             MainActivity.ctxApp = getApplicationContext(); //TODO Are they ever different?
             setContentView(R.layout.activity_main);
-            Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-            setSupportActionBar(myToolbar);
+
+            toolbarTop = (Toolbar) findViewById(R.id.toolbar_top);
+            setSupportActionBar(toolbarTop);
+            toolbarTop.setTitle(getString(R.string.app_label)+" "+getString(R.string.app_ver));
+
+            toolbarBottom = (Toolbar) findViewById(R.id.toolbar_bottom);
+            amvMenu = (ActionMenuView) toolbarBottom.findViewById(R.id.amvMenu);
+            amvMenu.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem menuItem) {
+                    return onOptionsItemSelected(menuItem);
+                }
+            });
+            setSupportActionBar(toolbarBottom);
+
             txtAcftNum = (TextView) findViewById(R.id.txtAcftNum);
             txtUserName = (EditText) findViewById(R.id.txtUserName);
             chBoxIsMultiLeg = (CheckBox) findViewById(R.id.patternCheckBox);
@@ -175,7 +192,9 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getMenuInflater().inflate(R.menu.menu_bottom, amvMenu.getMenu());
+        toolbarTop.inflateMenu(R.menu.menu_top);
         return true;
     }
 
@@ -434,7 +453,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void minSpeedSpinnerSetup() {
-        ArrayAdapter<CharSequence> adapterSpeed = ArrayAdapter.createFromResource(this, R.array.speed_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapterSpeed = ArrayAdapter.createFromResource(this, R.array.speed_array, android.R.layout.simple_list_item_1);
         adapterSpeed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerMinSpeed.setAdapter(adapterSpeed);
         Util.setSpinnerSpeedPos(Util.getSpinnerSpeedPos());
