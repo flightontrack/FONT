@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -7,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".AcftEditActivity">
+    >
 
     <LinearLayout
     android:orientation="horizontal"
@@ -53,7 +54,6 @@
             android:id="@+id/txtAcftRegNum"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:singleLine="true"
             android:inputType="text"
             android:layout_weight="3.5"
             android:gravity="end"/>
@@ -77,11 +77,36 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:gravity="end"
-            android:singleLine="true"
             android:inputType="text"
             android:text=""
             android:layout_weight="6" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:text="@string/label_pilotphone"
+            style="@style/label_text"
+            android:typeface="normal"
+            android:clickable="false"
+            />
+
+        <EditText
+            android:id="@+id/txtUserName"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:gravity="end" />
+    </LinearLayout>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"

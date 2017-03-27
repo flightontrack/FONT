@@ -43,7 +43,7 @@ import static com.flightontrack.Const.*;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity:";
     static Context ctxApp;
-    static EditText txtUserName;
+    static TextView txtUserName;
     static TextView txtAcftNum ;
     static Spinner spinnerUpdFreq;
     static Spinner spinnerMinSpeed;
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             setSupportActionBar(toolbarBottom);
 
             txtAcftNum = (TextView) findViewById(R.id.txtAcftNum);
-            txtUserName = (EditText) findViewById(R.id.txtUserName);
+            txtUserName = (TextView) findViewById(R.id.txtUserName);
             chBoxIsMultiLeg = (CheckBox) findViewById(R.id.patternCheckBox);
             spinnerUpdFreq = (Spinner) findViewById(R.id.spinnerId);
             spinnerMinSpeed = (Spinner) findViewById(R.id.spinnerMinSpeedId);

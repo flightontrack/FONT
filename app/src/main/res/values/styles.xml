@@ -13,7 +13,7 @@
     </style>
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Light">
         <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
-        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/holo_green_dark</item>
         <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
         <item name="actionMenuTextColor">@android:color/holo_green_light</item>
         <!-- Tints the input fields like checkboxes and text fields -->
