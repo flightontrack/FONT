@@ -4,38 +4,69 @@
 
     <!-- Base application theme. -->
     <!--<style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">-->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!--<item name="android:textSize">"@style/large_title_text</item>-->
         <item name="android:textSize">20sp</item>
         <item name="colorPrimary">@color/colorPrimary</item>
+         <!--Tints the input fields like checkboxes and text fields-->
+        <item name="colorAccent">@color/colorPrimary</item>
         <!-- Overflow menu background -->
         <item name="android:itemBackground">@color/colorPrimary</item>
+
+        <item name="android:windowBackground">@color/winbackgr</item> <!-- main window background  -->
     </style>
-    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Light">
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat">
         <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
-        <item name="android:textColorPrimary">@android:color/holo_green_dark</item>
+        <item name="android:textColorPrimary">@color/winbackgr</item>
         <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
-        <item name="actionMenuTextColor">@android:color/holo_green_light</item>
-        <!-- Tints the input fields like checkboxes and text fields -->
-        <!--<item name="colorAccent">@android:color/holo_blue_bright</item>-->
-        <!-- Applies to views in their normal state. -->
-        <item name="colorControlNormal">@android:color/holo_green_light</item>
+        <item name="actionMenuTextColor">@android:color/black</item>
+
+        <!-- overflow menu points color -->
+        <item name="colorControlNormal">@color/winbackgr</item>
         <!-- Applies to views in their activated state (i.e checked or switches) -->
         <item name="colorControlActivated">@android:color/holo_green_light</item>
         <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
         <item name="colorControlHighlight">@android:color/holo_green_light</item>
+        <!-- background for bar label  -->
+        <item name="android:background">@color/colorPrimary</item>
 
-        <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
-        <!--
-        <item name="selectableItemBackground">?android:selectableItemBackground</item>
-        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
-        -->
     </style>
-    <!-- This configures the styles for the title within the Toolbar  -->
 
-    <style name="label_text" parent="AppTheme">
-        <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:layout_marginRight">10dp</item>
+    <!-- This configures the styles for text within overflow menu  -->
+    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat">
+        <item name="android:textColor">@android:color/white</item>
+        <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
+        <!--<item name="actionMenuTextColor">@color/colorGreen</item>-->
+        <!--background for text -->
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="Cards" parent="AppTheme">
+        <!--background for text -->
+        <item name="android:background">@color/winbackgr</item>
+        <item name="android:paddingStart">@dimen/activity_card_padding_left</item>
+        <item name="android:paddingEnd">@dimen/activity_card_padding_right</item>
+        <item name="android:paddingTop">@dimen/activity_card_padding_top</item>
+        <item name="android:paddingBottom">@dimen/activity_card_padding_bottom</item>
+    </style>
+
+    <style name="AppSpinner" parent="Base.Widget.AppCompat.Spinner.Underlined">
+        <!--<item name="android:background">@drawable/your_spinner_background</item>-->
+    </style>
+
+    <style name="BottomArea">
+        <!--background for text -->
+        <!--<item name="android:background">@color/winbackgr</item>-->
+        <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="label_text">
+        <!--<item name="android:layout_marginLeft">10dp</item>-->
+        <!--<item name="android:layout_marginRight">10dp</item>-->
+    </style>
+    <style name="label_label">
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginRight">1dp</item>
     </style>
     <style name="label_text_small" parent="AppTheme">
         <item name="android:layout_marginLeft">5dp</item>
@@ -53,8 +84,9 @@
         <item name="android:background">@drawable/bttn_status_red</item>
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
-        <item name="android:layout_marginLeft">5dp</item>
+        <!--<item name="android:layout_marginLeft">5dp</item>-->
         <item name="android:layout_marginTop">1dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
     </style>
     <style name="track_button_small" parent="@android:style/Widget.Button">
         <item name="android:gravity">center_vertical|center_horizontal</item>

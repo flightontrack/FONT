@@ -375,8 +375,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void facebActivity() {
-        Intent intent = new Intent(this, FaceBookActivity.class);
-        startActivity(intent);
+//f        Intent intent = new Intent(this, FaceBookActivity.class);
+//f        startActivity(intent);
     }
 
     void helpPage() {

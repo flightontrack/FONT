@@ -48,8 +48,6 @@
     <!--<string name="user_name">User_name</string>-->
     <!--labels Settings-->
     <string name="label_trackingurl">Cloud URL:</string>
-    <string name="label_trackingspeed">Min Speed (mph):</string>
-    <string name="label_minspeed">Min Speed:</string>
     <string name="label_website">Site:</string>
     <string name="label_website_user">User ID:</string>
     <string name="label_website_psw">User Psw:</string>
@@ -64,11 +62,12 @@
     <string name="label_build">Build:</string>
 
     <!--labels MainActivity-->
-    <string name="label_pilotphone">Pilot:</string>
-    <string name="label_aircrafttag">Aircraft:</string>
-    <string name="label_interval">Update Freq:</string>
+    <string name="label_pilotphone">Pilot</string>
+    <string name="label_aircrafttag">Aircraft</string>
+    <string name="label_interval">Update Freq</string>
+    <string name="label_minspeed">Min Speed Mph</string>
     <string name="label_interval_small">Freq:</string>
-    <string name="label_pattern">Multileg:</string>
+    <string name="label_pattern">Multileg</string>
     <string name="label_flightid">Flight ID:</string>
     <string name="label_btnsave">Save Settings</string>
 
@@ -130,9 +129,9 @@
         <item>5 min</item>
     </string-array>
     <string-array name="speed_array">
-        <item>40 mph</item>
-        <item>20 mph</item>
-        <item>10 mph</item>
+        <item>40</item>
+        <item>20</item>
+        <item>10</item>
         <!--<item>1</item>-->
         <item>0</item>
     </string-array>

@@ -11,11 +11,13 @@
     <item name="darkgreen" type="color">#FF669900</item>
     <item name="darkorange" type="color">#FFFF8800</item>
     <item name="darkred" type="color">#FFCC0000</item>
+    <item name="grey" type="color">#707070</item>
+    <item name="winbackgr" type="color">#e2ddeaf5</item>
+    <!--<item name="winbackgr" type="color">#f1f7ed</item>-->
 
     <item name="colorPrimary" type="color">#2d4b65</item>
     <item name="colorGreen" type="color">#2ea27c</item>
 
-    #2ea27c
     <integer-array name="androidcolors">
         <item>@color/blue</item>
         <item>@color/purple</item>
@@ -26,7 +28,6 @@
         <item>@color/darkpurple</item>
         <item>@color/darkgreen</item>
         <item>@color/darkorange</item>
-        <item>@color/darkred</item>
     </integer-array>
 
 </resources> 
