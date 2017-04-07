@@ -176,8 +176,10 @@ class ShowAlertClass {
     void showBackPressed(){
         //MainActivity.dialogOn = true;
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mainact_ctx);
+        //alertDialogBuilder.setTitle("Something");
+
         alertDialogBuilder.setMessage(mainact_ctx.getString(R.string.backpressed_dialog))
-                .setCancelable(false)
+                .setCancelable(true)
                 .setPositiveButton(mainact_ctx.getString(R.string.backpressed_dialog_pos),
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -193,6 +195,14 @@ class ShowAlertClass {
                         dialog.cancel();
                     }
                 });
+//        //Button Three : Neutral
+//        alertDialogBuilder.setNeutralButton("Can't Say!", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Toast.makeText(MainActivity.this, "Neutral button Clicked!", Toast.LENGTH_LONG).show();
+//                        dialog.cancel();
+//                    }
+//                }
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
     }

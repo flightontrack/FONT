@@ -16,7 +16,8 @@
     <!--<item name="winbackgr" type="color">#f1f7ed</item>-->
 
     <item name="colorPrimary" type="color">#2d4b65</item>
-    <item name="colorGreen" type="color">#2ea27c</item>
+    <item name="colorPrimaryLight" type="color">#c8ddef</item>
+    <item name="colorGreen" type="color">#3b7663</item>
 
     <integer-array name="androidcolors">
         <item>@color/blue</item>

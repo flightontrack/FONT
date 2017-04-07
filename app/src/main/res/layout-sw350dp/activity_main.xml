@@ -139,12 +139,39 @@
                 android:orientation="vertical"
                 android:theme="@style/BottomArea"
                 >
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:theme="@style/BottomArea"
+                    android:weightSum="10"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_pattern"
+                        android:layout_gravity="bottom"
+                        android:gravity="start"
+                        style="@style/label_label"
+                        />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/patternCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|top"
+                        android:scaleX="2"
+                        android:scaleY="2"
+                        android:theme="@style/checkBoxComponent" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
                     >
                     <TextView
                         android:layout_width="0dp"
@@ -154,13 +181,32 @@
                         android:gravity="start"
                         style="@style/label_label"
                         />
-                    <Spinner
+                    <LinearLayout
+
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         android:layout_width="0dp"
                         android:layout_weight="1"
+                        android:layout_marginLeft="0dp"
+                        >
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
                         android:id="@+id/spinnerId"
-
+                        android:spinnerMode="dialog"
+                        android:theme="@style/AppSpinner"
+                        android:clickable="true"
                         />
+                    <View
+                        android:layout_below="@id/spinnerId"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_gravity="bottom"
+                        android:background="@android:color/darker_gray"/>
+                </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -177,43 +223,34 @@
                         android:gravity="start"
                         style="@style/label_label"
                         />
+                    <LinearLayout
 
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="0dp"
+                        >
                     <Spinner
                         android:id="@+id/spinnerMinSpeedId"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_weight="1"
-                        style="@style/label_text"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:spinnerMode="dialog"
+                        android:theme="@style/AppSpinner"
                         />
-
+                        <View
+                            android:layout_below="@id/spinnerId"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_gravity="bottom"
+                            android:background="@android:color/darker_gray"/>
+                </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="10"
-                    android:layout_marginBottom="20dp"
-                    >
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="6.2"
-                        android:layout_height="wrap_content"
-                        android:text="@string/label_pattern"
-                        android:layout_gravity="bottom"
-                        android:gravity="start"
-                        style="@style/label_label"
-                        />
 
-                    <CheckBox
-                        android:id="@+id/patternCheckBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start"
-                        android:scaleX="2"
-                        android:scaleY="2" />
-
-                </LinearLayout>
             </LinearLayout>
 
 

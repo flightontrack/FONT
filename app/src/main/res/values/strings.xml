@@ -65,7 +65,7 @@
     <string name="label_pilotphone">Pilot</string>
     <string name="label_aircrafttag">Aircraft</string>
     <string name="label_interval">Update Freq</string>
-    <string name="label_minspeed">Min Speed Mph</string>
+    <string name="label_minspeed">Min Speed MpH</string>
     <string name="label_interval_small">Freq:</string>
     <string name="label_pattern">Multileg</string>
     <string name="label_flightid">Flight ID:</string>
@@ -108,9 +108,9 @@
     <string name="unsentrecords_dialog_pos">Yes, try it now.</string>
     <string name="unsentrecords_failed">Failed to send. The points will be lost.</string>
 
-    <string name="backpressed_dialog"> Do you want to stop application?</string>
-    <string name="backpressed_dialog_neg">No, keep it running in background.</string>
-    <string name="backpressed_dialog_pos">Yes, do it now.</string>
+    <string name="backpressed_dialog"> Do you want to stop application or keep it running in background?</string>
+    <string name="backpressed_dialog_neg">no, keep run</string>
+    <string name="backpressed_dialog_pos">Yes, Stop it</string>
 
     <string name="permiss_ask">This application requires permissions that are not granted yet</string>
     <string name="permiss_grantyes">Grant Permissions</string>

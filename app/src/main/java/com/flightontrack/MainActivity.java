@@ -440,7 +440,8 @@ public class MainActivity extends AppCompatActivity {
 
     void updFreqSpinnerSetup() {
         String[] interval_name = getResources().getStringArray(R.array.intervalname_array);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, interval_name);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, interval_name);
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         spinnerUpdFreq.setAdapter(adapter);
         spinnerUpdFreq.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -453,8 +454,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void minSpeedSpinnerSetup() {
-        ArrayAdapter<CharSequence> adapterSpeed = ArrayAdapter.createFromResource(this, R.array.speed_array, android.R.layout.simple_list_item_1);
-        adapterSpeed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapterSpeed = ArrayAdapter.createFromResource(this, R.array.speed_array, android.R.layout.simple_spinner_item);
+        adapterSpeed.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         spinnerMinSpeed.setAdapter(adapterSpeed);
         Util.setSpinnerSpeedPos(Util.getSpinnerSpeedPos());
         spinnerMinSpeed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
