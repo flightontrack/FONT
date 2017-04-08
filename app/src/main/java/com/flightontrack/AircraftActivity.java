@@ -30,17 +30,18 @@ public class AircraftActivity extends Activity {
     public static SharedPreferences sharedPreferences;
     public static SharedPreferences.Editor editor;
 
-    protected static TextView txtBlueText;
-    protected static TextView txtAcftMake;
-    protected static TextView txtAcftModel;
-    protected static TextView txtAcftSeries;
-    protected static EditText txtAcftRegNum;
-    protected static EditText txtAcftName;
-    protected static TextView txtAcftTagId;
-    protected static Button doneButton;
-    protected static Button cancelButton;
-    protected static Button clearButton;
-    protected static Switch nfcSwitch;
+    static TextView txtBlueText;
+    static TextView txtAcftMake;
+    static TextView txtAcftModel;
+    static TextView txtAcftSeries;
+    static EditText txtAcftRegNum;
+    static EditText txtAcftName;
+    static TextView txtAcftTagId;
+    static TextView txtUserName;
+    static Button doneButton;
+    static Button cancelButton;
+    static Button clearButton;
+    static Switch nfcSwitch;
     ShowAlertClass showAlertClass;
     protected static NfcAdapter nfcAdapter;
     IntentFilter tagDetected;
@@ -102,10 +103,13 @@ public class AircraftActivity extends Activity {
        nfcSwitch= (Switch)findViewById(R.id.switch_nfc);
        txtBlueText=(TextView)findViewById(R.id.txtBlueText);
        nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+       txtUserName = (TextView) findViewById(R.id.txtUserName);
        //showAlertClass = new ShowAlertClass(this);
        //if (MainActivity.isNFCcapable) enableNfcForegroundMode();
        init_listeners();
+       txtUserName.setText(Util.getUserName());
        setAcft(getAcft());
+
        super.onResume();
 
 //       nfcAdapter.enableForegroundDispatch(this, pendingIntent, nfcFilters, null);
@@ -139,6 +143,7 @@ public class AircraftActivity extends Activity {
                     //Log.e(GLOBALTAG,TAG+ "Couldn't parse JSON: ", e);
                 }
                 setAcft(json);
+                Util.setUserName(txtUserName.getText().toString());
                 finish();
             }
         });
@@ -166,6 +171,35 @@ public class AircraftActivity extends Activity {
                 }
             });
         }
+//                txtUserName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                String input;
+//                if (actionId == EditorInfo.IME_ACTION_DONE ||
+//                        event.getAction() == KeyEvent.ACTION_DOWN &&
+//                                event.getKeyCode() == KeyEvent.KEYCODE_ENTER
+//                        ) {
+//                    input = v.getText().toString();
+//                    Util.setUserName(input);
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    imm.hideSoftInputFromWindow(txtUserName.getWindowToken(), 0);
+//                    return true; // consume.
+//                }
+//                return false; // pass on to other listeners.
+//            }
+//        });
+        txtUserName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                String input;
+                EditText editText;
+                if (!hasFocus) {
+                    editText = (EditText) v;
+                    input = editText.getText().toString();
+                    Util.setUserName(input);
+                }
+            }
+        });
     }
     //void setAcft(String AcftMake,String AcftModel,String AcftSeries,String AcftRegNum,String AcftTagId){
         void setAcft(JSONObject json){

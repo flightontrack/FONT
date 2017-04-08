@@ -1,7 +1,6 @@
 package com.flightontrack;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -17,18 +16,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     static Toolbar toolbarTop;
     static Toolbar toolbarBottom;
     static ActionMenuView amvMenu;
+    static View cardLayout1;
     public static boolean isNFCcapable = false;
     static MainActivity instanceThis = null;
     public Route route;
@@ -104,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
             spinnerUpdFreq = (Spinner) findViewById(R.id.spinnerId);
             spinnerMinSpeed = (Spinner) findViewById(R.id.spinnerMinSpeedId);
             trackingButton = (Button) findViewById(R.id.btnTracking);
+            cardLayout1 = findViewById(R.id.cardLayoutId1);
             sharedPreferences = ctxApp.getSharedPreferences("com.flightontrack", Context.MODE_PRIVATE);
             editor = sharedPreferences.edit();
             //MainActivity.ctxBase = getBaseContext();
@@ -178,7 +175,8 @@ public class MainActivity extends AppCompatActivity {
         Util.setSpinnerSpeedPos(Util.getSpinnerSpeedPos());
 
         if (!(MainActivity._phoneNumber==null)&&!(MainActivity._myDeviceId==null)) {
-            Util.setUserName(Util.getUserName());
+            //Util.setUserName(Util.getUserName());
+            txtUserName.setText(Util.getUserName());
         }
         Route.setTrackingButtonState(Route.trackingButtonState);
 
@@ -297,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Util.appendLog(TAG + "trackingButton: onClick",'d');
                 if (route._routeStatus == RSTATUS.PASSIVE) {
-                    Util.setUserName(txtUserName.getText().toString());
+                    //Util.setUserName(txtUserName.getText().toString());
                     Util.setAcftNum(txtAcftNum.getText().toString());
                     setIntervalSelectedItem(spinnerUpdFreq.getSelectedItemPosition());
                     if (!AppProp.autostart && !is_services_available()) return;
@@ -324,35 +322,45 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        txtUserName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//        txtUserName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                String input;
+//                if (actionId == EditorInfo.IME_ACTION_DONE ||
+//                        event.getAction() == KeyEvent.ACTION_DOWN &&
+//                                event.getKeyCode() == KeyEvent.KEYCODE_ENTER
+//                        ) {
+//                    input = v.getText().toString();
+//                    Util.setUserName(input);
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    imm.hideSoftInputFromWindow(txtUserName.getWindowToken(), 0);
+//                    return true; // consume.
+//                }
+//                return false; // pass on to other listeners.
+//            }
+//        });
+//        txtUserName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                String input;
+//                EditText editText;
+//                if (!hasFocus) {
+//                    editText = (EditText) v;
+//                    input = editText.getText().toString();
+//                    Util.setUserName(input);
+//                }
+//            }
+//        });
+        cardLayout1.setOnClickListener(new View.OnClickListener(){
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                String input;
-                if (actionId == EditorInfo.IME_ACTION_DONE ||
-                        event.getAction() == KeyEvent.ACTION_DOWN &&
-                                event.getKeyCode() == KeyEvent.KEYCODE_ENTER
-                        ) {
-                    input = v.getText().toString();
-                    Util.setUserName(input);
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(txtUserName.getWindowToken(), 0);
-                    return true; // consume.
-                }
-                return false; // pass on to other listeners.
+            public void onClick(View view) {
+                Util.appendLog(TAG + "Method1", 'd');
+                Intent intent = new Intent(ctxApp, AircraftActivity.class);
+                startActivity(intent);
             }
+
         });
-        txtUserName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                String input;
-                EditText editText;
-                if (!hasFocus) {
-                    editText = (EditText) v;
-                    input = editText.getText().toString();
-                    Util.setUserName(input);
-                }
-            }
-        });
+
     }
 
     private boolean isGPSEnabled() {
@@ -565,6 +573,13 @@ public class MainActivity extends AppCompatActivity {
             //pSpinnerUrlsPos=0;
         }
     }
+
+//    static void Method1(View v){
+//        Util.appendLog(TAG + "Method1", 'd');
+//        Intent intent = new Intent(this, AircraftActivity.class);
+//        //startActivity(intent);
+//        //acftActivity();
+//    }
 
 }
 

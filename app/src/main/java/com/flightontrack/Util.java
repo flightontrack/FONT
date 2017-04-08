@@ -85,7 +85,8 @@ public class Util {
 
     static void setUserName(String un) {
         editor.putString("userName", un.trim()).commit();
-        MainActivity.txtUserName.setText(un);
+        //MainActivity.txtUserName.setText(un);
+        //AircraftActivity.txtUserName.setText(un);
     }
 
     static String getUserName() {
